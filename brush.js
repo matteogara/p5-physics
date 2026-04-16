@@ -4,13 +4,6 @@ class Brush {
     this.body.restitution = 1;
     this.color = color(random(255), random(255), random(255));
 
-    
-
-    // Nella classe brush.js, aggiungi un listener per gli eventi 
-    // di collisione. Puoi utilizzare Matter.Events.on per 
-    // ascoltare l'evento 'collisionStart' e verificare se uno 
-    // dei corpi coinvolti nella collisione è il corpo del pennello.
-
 
     // Subscribe to collision events
     Matter.Events.on(engine, 'collisionStart', (event) => {
