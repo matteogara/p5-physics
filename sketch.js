@@ -11,7 +11,7 @@ let brushes = [];
 
 let obstacle;
 
-let NUM_BRUSHES = 30;
+let NUM_BRUSHES = 50;
 
 
 
@@ -27,11 +27,11 @@ function setup() {
     Composite.add(engine.world, brush.body);
   }
 
-  obstacle = new Obstacle(width /2, 600, 300, 50, PI /6);
+  // obstacle = new Obstacle(width /2, 600, 300, 50, PI /6);
 
-  Composite.add(engine.world, obstacle.body);
+  // Composite.add(engine.world, obstacle.body);
 
-  
+
   let button = createButton('Request Sensor Access');
   button.position(10, 10);
   button.mousePressed(() => {
@@ -63,13 +63,13 @@ function draw() {
 
   // console.log(rotationX);
 
-  let gravityY = map(rotationX, PI, -PI, 1, -1);
+  let gravityY = map(rotationX, PI, -PI, 4, -4);
   engine.world.gravity.y = gravityY;
 
-  let gravityX = map(rotationY, -PI, PI, -1, 1);
+  let gravityX = map(rotationY, -PI, PI, -4, 4);
   engine.world.gravity.x = gravityX;
   
-  obstacle.draw();
+  // obstacle.draw();
 
   Engine.update(engine);
 }

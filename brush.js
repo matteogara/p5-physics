@@ -1,6 +1,7 @@
 class Brush {
   constructor(x, y, r) {
-    this.body = Bodies.circle(x, y, r);
+    this.r = r;
+    this.body = Bodies.circle(x, y, this.r);
     this.body.restitution = 1;
     this.color = color(random(255), random(255), random(255));
 
@@ -26,7 +27,9 @@ class Brush {
 
   onCollision() {
     this.color = color(random(255), random(255), random(255));
-  }
+    this.body.circleRadius = random(10, 30);
+}
+
 
   keepInBounds() {
     let pos = this.body.position;
