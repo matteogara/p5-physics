@@ -11,7 +11,7 @@ let brushes = [];
 
 let obstacle;
 
-let NUM_BRUSHES = 100;
+let NUM_BRUSHES = 30;
 
 
 function setup() {
@@ -24,7 +24,6 @@ function setup() {
     brushes.push(brush);
     Composite.add(engine.world, brush.body);
   }
-  
 
   obstacle = new Obstacle(width /2, 600, 300, 50, PI /6);
 
@@ -38,8 +37,6 @@ function draw() {
     brushes[i].draw();
   }
   
-  // console.log(brush.body.speed);
-
   obstacle.draw();
 
   Engine.update(engine);
