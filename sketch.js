@@ -13,33 +13,21 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   engine = Engine.create();
 
-  brush = Bodies.circle(width / 2, height / 4, 50);
+  brush = new Brush(width / 2, height / 4, 50);
 
-  obstacle = Bodies.rectangle(width /2, 600, 300, 50);
-  obstacle.isStatic = true;
+  obstacle = new Obstacle(width /2, 600, 300, 50, PI /6);
 
-  Body.setAngle(obstacle, PI /6);
+  console.log(obstacle);
 
-  console.log(obstacle); 
-
-  Composite.add(engine.world, [brush, obstacle]);
+  Composite.add(engine.world, [brush.body, obstacle.body]);
 }
 
 function draw() {
   background(220);
 
-  noStroke();
-  fill(255, 0, 0);
-  circle(brush.position.x, brush.position.y, brush.circleRadius * 2);
+  brush.draw();
 
-  rectMode(CENTER);
-  fill(0, 255, 0);
-
-  translate(obstacle.position.x, obstacle.position.y);
-  rotate(obstacle.angle);
-  translate(-obstacle.position.x, -obstacle.position.y);
-
-  rect(obstacle.position.x, obstacle.position.y, 300, 50);
+  obstacle.draw();
 
   Engine.update(engine);
 }
